@@ -7,7 +7,9 @@ async function getData(title: string){
 
 
 try {
-    const res =  await fetch(`${process.env.NEXT_API_URL}/next-api/?api=game&title=${title}`)
+    const decodeTitle =  decodeURI(title) /* faz com que o back end receba o titulo sem o encode */
+    
+    const res =  await fetch(`${process.env.NEXT_API_URL}/next-api/?api=game&title=${decodeTitle}`)
     return res.json();
 } catch (err) {
     return null;
