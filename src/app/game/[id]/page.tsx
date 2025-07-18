@@ -2,6 +2,7 @@ import { GameProps } from "@/utils/types/game";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import {Container} from '@/components/container'
+import {Label} from './components/label'
 
 async function getData(id: string){
     try {
@@ -41,6 +42,13 @@ export default async function Game({
         <Container>
             <h1 className="font-bold text-xl my-4">{data.title}</h1>
             <p>{data.description}</p>
+
+            <h2 className="font-bold text-lg mt-7 mb-2">Categorias</h2>
+            <div className="flex gap-2 flex-wrap">
+                {data.categories.map((game)=>(
+                    <Label name={game} key={game}/>
+                ))}
+            </div>
         </Container>
 
         </main>
