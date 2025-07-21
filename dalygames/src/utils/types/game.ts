@@ -3,7 +3,7 @@ export interface GameProps{
     title: string;
     description: string;
     image_url: string;
-    plataforms: string[];
+    platforms: string[]; // mudou de plataforms para platforms
     categories: string[];
     release: string;
 
