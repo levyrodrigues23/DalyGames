@@ -14,12 +14,13 @@ async function getData(id: string){
 }
 
 export default async function Game({
-    params: {id}
+    params
 }: {
-    params: {
+    params: Promise<{
         id: string
-    }
+    }>
 }){
+    const { id } = await params;
     const data: GameProps =  await getData(id)
     
     if (!data){

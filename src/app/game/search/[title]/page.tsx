@@ -17,11 +17,12 @@ try {
 }
 
 
-export default async function Search({params: { title }}: {
-    params:{
+export default async function Search({params}: {
+    params: Promise<{
         title: string
-    } /* eu passei o parametro que eu vou pegar e eu basicamente tipei ele, assim tornando tudo mais simples e tranquilo */
+    }> /* eu passei o parametro que eu vou pegar e eu basicamente tipei ele, assim tornando tudo mais simples e tranquilo */
 }){
+    const { title } = await params;
     const games: GameProps[] = await getData(title) 
 
     return(
